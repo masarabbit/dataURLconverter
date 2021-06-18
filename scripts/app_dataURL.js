@@ -45,6 +45,11 @@ function init() {
       context.drawImage(imageTarget, 0, 0, 200, 200 * (height / width))
       textOutput[0].style.padding = '10px'
       textOutput[0].innerHTML = combineCanvas.toDataURL()
+
+      // const svgString = combineCanvas.innerHTML
+      // console.log(svgString)
+      // const dataUrl = 'data:image/svg+xml,'+encodeURIComponent(svgString);
+      // textOutput[0].innerHTML = dataUrl
       
       var imgData = context.getImageData(0, 0, 200, 200 * (height / width))
       textOutput[1].style.padding = '10px'
