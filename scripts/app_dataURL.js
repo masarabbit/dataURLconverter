@@ -29,9 +29,10 @@ function init() {
       height = imageTarget.naturalHeight 
       // context.drawImage(imageTarget, 0, 0, width, height)
       // context.drawImage(imageTarget, 0, 0)
-      
-      combineCanvas.setAttribute('width', 200)
-      combineCanvas.setAttribute('height', 200 * (height / width)) 
+      combineCanvas.setAttribute('width', width)
+      combineCanvas.setAttribute('height', height) 
+      // combineCanvas.setAttribute('width', 200)
+      // combineCanvas.setAttribute('height', 200 * (height / width)) 
     }, false)
 
 
@@ -42,7 +43,8 @@ function init() {
 
 
     setTimeout(()=>{
-      context.drawImage(imageTarget, 0, 0, 200, 200 * (height / width))
+      // context.drawImage(imageTarget, 0, 0, 200, 200 * (height / width))
+      context.drawImage(imageTarget, 0, 0, width, height)
       textOutput[0].style.padding = '10px'
       textOutput[0].innerHTML = combineCanvas.toDataURL()
 
@@ -51,7 +53,8 @@ function init() {
       // const dataUrl = 'data:image/svg+xml,'+encodeURIComponent(svgString);
       // textOutput[0].innerHTML = dataUrl
       
-      var imgData = context.getImageData(0, 0, 200, 200 * (height / width))
+      // var imgData = context.getImageData(0, 0, 200, 200 * (height / width))
+      var imgData = context.getImageData(0, 0, width, height)
       textOutput[1].style.padding = '10px'
       textOutput[1].innerHTML = imgData.data
       console.log(imgData)
@@ -69,8 +72,10 @@ function init() {
       width = imageTarget.naturalWidth 
       height = imageTarget.naturalHeight 
 
-      combineCanvas.setAttribute('width', 200)
-      combineCanvas.setAttribute('height', 200 * (height / width)) 
+      // combineCanvas.setAttribute('width', 200)
+      // combineCanvas.setAttribute('height', 200 * (height / width)) 
+      combineCanvas.setAttribute('width', width)
+      combineCanvas.setAttribute('height', height) 
     }, false)
 
     imageWrapper.innerHTML = ''
@@ -78,7 +83,8 @@ function init() {
     imageWrapper.appendChild(imageTarget)
 
     setTimeout(()=>{
-      context.drawImage(imageTarget, 0, 0, 200, 200 * (height / width))
+      // context.drawImage(imageTarget, 0, 0, 200, 200 * (height / width))
+      context.drawImage(imageTarget, 0, 0, width, height)
     },200)
   }
 
