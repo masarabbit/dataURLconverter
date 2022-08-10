@@ -51,6 +51,13 @@ function init() {
 
     updateImage(dataInput.value, imageTarget)
   }
+
+  const downloadImage = () =>{
+    const link = document.createElement('a')
+    link.download = `output_image_${new Date().getTime()}.png`
+    link.href = canvas.toDataURL()
+    link.click()
+  }
   
   const copyText = box =>{
     box.select()
@@ -61,6 +68,8 @@ function init() {
   buttons[0].onclick = output
   buttons[1].addEventListener('click', ()=> copyText(textOutput[0]))
   buttons[2].onclick = outputImage
+  buttons[3].onclick = downloadImage
+
 }
 
 window.addEventListener('DOMContentLoaded', init)
